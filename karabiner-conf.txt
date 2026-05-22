@@ -1,0 +1,46 @@
+{
+    "description": "macOS: Use middle button + TrackPoint movement as scroll",
+    "manipulators": [
+        {
+            "from": {
+                "modifiers": {
+                    "optional": [
+                        "any"
+                    ]
+                },
+                "pointing_button": "button3"
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "key_up_value": false,
+                        "name": "ibm_space_saver_trackpoint_scroll_mac",
+                        "value": true
+                    }
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "ibm_space_saver_trackpoint_scroll_mac",
+                    "type": "variable_if",
+                    "value": true
+                }
+            ],
+            "from": {
+                "modifiers": {
+                    "optional": [
+                        "any"
+                    ]
+                }
+            },
+            "options": {
+                "momentum_scroll_enabled": false,
+                "speed_multiplier": 3.0
+            },
+            "type": "mouse_motion_to_scroll"
+        }
+    ]
+}
